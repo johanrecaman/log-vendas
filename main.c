@@ -7,10 +7,15 @@ struct Product{
     char name[50];
 };
 
-struct Sales{
+struct Sale{
     int seller_id;
     int product_id;
     int quantity;
+};
+
+struct Seller{
+    int id;
+    char name[50];
 };
 
 struct Product* readProducts(){
