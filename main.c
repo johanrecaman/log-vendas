@@ -30,17 +30,17 @@ Product* readProducts(){
 
     fscanf(fptr, "%d", &num);
 
-    Product* produtos = malloc(num * sizeof(Product));
+    Product* products = malloc(num * sizeof(Product));
 
     for (int i = 0; i < num; i++){
-        fscanf(fptr, "%d %f %s", &produtos[i].id, &produtos[i].price, &produtos[i].name);
-        produtos[i].size = num;
-        produtos[i].totalSold = 0;
+        fscanf(fptr, "%d %f %s", &products[i].id, &products[i].price, &products[i].name);
+        products[i].size = num;
+        products[i].totalSold = 0;
     }
 
     fclose(fptr);
 
-    return produtos;
+    return products;
 }
 
 Sale* readSales(){
