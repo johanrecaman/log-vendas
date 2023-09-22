@@ -1,4 +1,11 @@
-3
+10
 35 5.00 Coca
 60 12.00 Vodka
 89 112.00 Vinho
+54 0.50 Tang
+22 7.50 Cerveja
+76 6.00 Gatorade
+43 9.00 RedBull
+98 2.00 Agua
+17 5.00 Guarana
+37 5.00 Fanta

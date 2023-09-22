@@ -150,7 +150,6 @@ void writeTotals() {
     Seller* sellers = totalBySeller();
     Sale* sales = readSales();
     Product* allProducts = readProducts();
-    Seller* allSellers = readSellers();
 
     fptr = fopen("./log/totais.txt", "w");
 
@@ -180,9 +179,9 @@ void writeTotals() {
     fprintf(fptr, "|-----------|-----------|---------------|\n");
 
     for (int i = 0; i < sales[0].size; i++) {
-        fprintf(fptr, "| %-10d| %-10d| %-10d    |\n", sales[i].seller_id, sales[i].product_id, sales[i].quantity);
+        fprintf(fptr, "|0%-10d| %-10d| %-10d    |\n", sales[i].seller_id, sales[i].product_id, sales[i].quantity);
     }
-    fprintf(fptr, "|------------|------------|-------------|\n");
+    fprintf(fptr, "|-----------|-----------|---------------|\n");
 
 
     fprintf(fptr, "\n-------------------------------------------------|\n");
@@ -191,8 +190,8 @@ void writeTotals() {
     fprintf(fptr, "| %-10s | %-20s | %-10s |\n", "Seller ID", "Name", "Total Sold");
     fprintf(fptr, "|------------|----------------------|------------|\n");
 
-    for (int i = 0; i < allSellers[0].size; i++) {
-        fprintf(fptr, "| %-10d | %-20s | %-10d |\n", allSellers[i].id, allSellers[i].name, allSellers[i].totalSold);
+    for (int i = 0; i < sellers[0].size; i++) {
+        fprintf(fptr, "| %-10d | %-20s | %-10d |\n", sellers[i].id, sellers[i].name, sellers[i].totalSold);
     }
     fprintf(fptr, "|------------|----------------------|------------|\n");
 
@@ -202,8 +201,8 @@ void writeTotals() {
     fprintf(fptr, "| %-10s | %-20s | %-10s | %-10s |\n", "Product ID", "Name", "Price", "Total Sold");
     fprintf(fptr, "|------------|----------------------|------------|------------|\n");
 
-    for (int i = 0; i < allProducts[0].size; i++) {
-        fprintf(fptr, "| %-10d | %-20s | %-10.2f | %-10d |\n", allProducts[i].id, allProducts[i].name, allProducts[i].price, allProducts[i].totalSold);
+    for (int i = 0; i < products[0].size; i++) {
+        fprintf(fptr, "| %-10d | %-20s | %-10.2f | %-10d |\n", products[i].id, products[i].name, products[i].price, products[i].totalSold);
     }
     fprintf(fptr, "|------------|----------------------|------------|------------|\n");
 
