@@ -153,7 +153,7 @@ void writeTotals() {
 
     fptr = fopen("./log/totais.txt", "w");
 
-    fprintf(fptr, "----------------------------------------\n");
+    fprintf(fptr, "----------------------------------------|\n");
     fprintf(fptr, "|          Total Sales Report           |\n");
     fprintf(fptr, "|---------------------------------------|\n");
     fprintf(fptr, "| %-20s| %-10s      |\n", "Item", "Total Sold");
@@ -172,7 +172,7 @@ void writeTotals() {
     }
     fprintf(fptr, "|---------------------|-----------------|\n");
 
-    fprintf(fptr, "\n----------------------------------------\n");
+    fprintf(fptr, "\n----------------------------------------|\n");
     fprintf(fptr, "|             Sales Log                 |\n");
     fprintf(fptr, "|---------------------------------------|\n");
     fprintf(fptr, "| %-10s| %-10s| %-10s    |\n", "Seller ID", "Product ID", "Quantity");
