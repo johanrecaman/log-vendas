@@ -144,6 +144,26 @@ Seller* totalBySeller(){
     return sellers;
 }
 
+void writeTotals(){
+    FILE* fptr;
+    Product* products = totalByProduct();
+    Seller* sellers = totalBySeller();
+
+    fptr = fopen("./log/totais.txt", "w");
+
+    fprintf(fptr, "Total Sold:%d\n", totalSold());
+    for (int i = 0; i < products[0].size; i++){
+        fprintf(fptr, "%s%d\n",products[i].name, products[i].totalSold);
+    }
+
+    for (int i = 0; i < sellers[0].size; i++){
+        fprintf(fptr, "%s%d\n",sellers[i].name, sellers[i].totalSold);
+    }
+
+    fclose(fptr);
+}
+
 int main() { 
+    writeTotals();    
     return 0;
 }
