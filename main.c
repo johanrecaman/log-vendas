@@ -144,24 +144,40 @@ Seller* totalBySeller(){
     return sellers;
 }
 
-void writeTotals(){
+void writeTotals() {
     FILE* fptr;
     Product* products = totalByProduct();
     Seller* sellers = totalBySeller();
 
     fptr = fopen("./log/totais.txt", "w");
 
-    fprintf(fptr, "Total Sold:%d\n", totalSold());
-    for (int i = 0; i < products[0].size; i++){
-        fprintf(fptr, "%s%d\n",products[i].name, products[i].totalSold);
-    }
+    // Escreve o cabeçalho da tabela
+    fprintf(fptr, "----------------------------------------\n");
+    fprintf(fptr, "|          Total Sales Report           |\n");
+    fprintf(fptr, "|---------------------------------------|\n");
+    fprintf(fptr, "| %-20s| %-10s      |\n", "Item", "Total Sold");
+    fprintf(fptr, "|---------------------|-----------------|\n");
 
-    for (int i = 0; i < sellers[0].size; i++){
-        fprintf(fptr, "%s%d\n",sellers[i].name, sellers[i].totalSold);
+    // Escreve o total geral de vendas
+    fprintf(fptr, "| %-20s| %-10d      |\n", "Total Sold", totalSold());
+    fprintf(fptr, "|---------------------|-----------------|\n");
+
+    // Escreve os totais por produto
+    for (int i = 0; i < products[0].size; i++) {
+        fprintf(fptr, "| %-20s| %-10d      |\n", products[i].name, products[i].totalSold);
     }
+    fprintf(fptr, "|---------------------|-----------------|\n");
+
+    // Escreve os totais por vendedor
+    for (int i = 0; i < sellers[0].size; i++) {
+        fprintf(fptr, "| %-20s| %-10d      |\n", sellers[i].name, sellers[i].totalSold);
+    }
+    fprintf(fptr, "|---------------------|-----------------|\n");
 
     fclose(fptr);
 }
+
+
 
 int main() { 
     writeTotals();    
